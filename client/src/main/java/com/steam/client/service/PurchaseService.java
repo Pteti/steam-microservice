@@ -12,7 +12,6 @@ public class PurchaseService {
 
     private final RestTemplate restTemplate;
 
-    @Autowired
     public PurchaseService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }

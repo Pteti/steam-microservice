@@ -14,10 +14,12 @@ public class GameService {
     GameRepository gameRepository;
 
     public List<Game> getAllGames() {
-        return gameRepository.findAll();
+        // return gameRepository.findAll();
+        return null;
     }
 
     public Game getGameById(long id) {
-        return gameRepository.findById(id).get();
+        // return gameRepository.findById(id).get();
+        return null;
     }
 }

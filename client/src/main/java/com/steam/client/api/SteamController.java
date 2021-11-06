@@ -22,6 +22,11 @@ public class SteamController {
     @Autowired
     PurchaseService purchaseService;
 
+    @RequestMapping("/")
+    public String home() {
+        return "Hello Docker World";
+    }
+
     @GetMapping("/games")
     List<Game> listAllGames() {
         return gameService.getAllGames();
