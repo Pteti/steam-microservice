@@ -8,4 +8,5 @@ CREATE TABLE game (
 );
 
 INSERT INTO game (name, price, category) VALUES
-  ('cod', 49.90, 'shooter');
+  ('cod', 49.90, 'shooter'),
+  ('fortnite', 5.99, 'battle-royal');

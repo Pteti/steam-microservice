@@ -1,6 +1,5 @@
 package com.steam.client.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +15,12 @@ public class PurchaseService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    public void purchaseGame(long userId, long gameId) {
-        String url = "localhost:9888/" + userId + "/" + gameId;
+    public ResponseEntity<String> purchaseGame(long userId, long gameId) {
+        String url = "http://localhost:9888/" + userId + "/" + gameId;
         ResponseEntity<String> response = this.restTemplate.getForEntity(url, String.class);
         if (response.getStatusCode() != HttpStatus.OK) {
             //baj van
         }
+        return response;
     }
 }

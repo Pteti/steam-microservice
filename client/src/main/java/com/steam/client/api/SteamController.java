@@ -2,9 +2,10 @@ package com.steam.client.api;
 
 import com.steam.client.model.Game;
 import com.steam.client.service.GameService;
-import com.steam.client.service.PlayService;
+import com.steam.client.service.GamingService;
 import com.steam.client.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,14 +18,14 @@ public class SteamController {
     GameService gameService;
 
     @Autowired
-    PlayService playService;
+    GamingService gamingService;
 
     @Autowired
     PurchaseService purchaseService;
 
     @RequestMapping("/")
     public String home() {
-        return "Hello Docker World";
+        return "Hello Steam API";
     }
 
     @GetMapping("/games")
@@ -38,9 +39,9 @@ public class SteamController {
     }
 
     @PostMapping("/{userId}/buy/{gameId}")
-    void purchaseGame(@PathVariable("userId") long userId, @PathVariable("gameId") long gameId) {
+    ResponseEntity<String> purchaseGame(@PathVariable("userId") long userId, @PathVariable("gameId") long gameId) {
         //check if user has game
-        purchaseService.purchaseGame(userId,gameId);
+        return purchaseService.purchaseGame(userId,gameId);
     }
 
     @PostMapping("/{userId}/play/{gameId}")

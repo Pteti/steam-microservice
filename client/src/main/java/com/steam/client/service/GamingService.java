@@ -8,17 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class GameService {
+public class GamingService {
 
     @Autowired
     GameRepository gameRepository;
 
     public List<Game> getAllGames() {
         return gameRepository.findAll();
-    }
-
-    public Game getGameById(long id) {
-        // return gameRepository.findById(id).get();
-        return null;
     }
 }
