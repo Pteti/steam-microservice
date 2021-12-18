@@ -8,6 +8,7 @@ Spring boot application running on Docker or port 9888
 
 
 ## examples
+Before running the example requests please read the individual Readme files in the microservices
 The database is filled with example values. First start both applications and the you can check some examples for a complete test (order matters). You can run these at Postman
 
 ### List users (GET)
