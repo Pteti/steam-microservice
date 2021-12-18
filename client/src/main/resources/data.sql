@@ -13,6 +13,7 @@ CREATE TABLE game (
 CREATE TABLE steam_user (
   id INT AUTO_INCREMENT  PRIMARY KEY,
   user_name VARCHAR(250) NOT NULL,
+  balance FLOAT NOT NULL,
   is_logged_in BOOLEAN
 );
 
@@ -42,12 +43,12 @@ INSERT INTO game (name, price, category) VALUES
   ('outlast', 7.99, 'horror'),
   ('league of legends', 1.99, 'moba');
 
-INSERT INTO steam_user (user_name) VALUES
-  ('pista99'),
-  ('joska'),
-  ('superGamer69'),
-  ('cringeName123'),
-  ('qpak');
+INSERT INTO steam_user (user_name, balance) VALUES
+  ('pista99', 100.0),
+  ('joska', 0),
+  ('superGamer69', 100.0),
+  ('cringeName123', 100.0),
+  ('qpak', 50.0);
 
 INSERT INTO ownership (steam_user_id, game_id) VALUES
     (1,1), (1,5), (1,9),

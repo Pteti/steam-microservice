@@ -75,10 +75,4 @@ public class SteamController {
         //purchase game
         return purchaseService.purchaseGame(userName,gameId);
     }
-
-    @PostMapping("/{userId}/play/{gameId}")
-    void playGame(@PathVariable("userId") long userId, @PathVariable("gameId") long gameId) {
-        //check if user has game
-        //playService.playGame(gameId);
-    }
 }

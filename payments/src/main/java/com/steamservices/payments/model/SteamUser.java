@@ -1,4 +1,4 @@
-package com.steam.client.model;
+package com.steamservices.payments.model;
 
 import lombok.Getter;
 import lombok.Setter;
