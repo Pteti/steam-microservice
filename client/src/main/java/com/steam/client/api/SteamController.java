@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/steam")
-public class SteamController {
+@RequestMapping
+public class SteamController implements SteamControllerInterface {
 
     @Autowired
     GameService gameService;
@@ -25,33 +25,33 @@ public class SteamController {
     @Autowired
     SteamUserService userService;
 
-    @RequestMapping("/")
+    @GetMapping("/steam")
     public String home() {
         return "Hello Steam API";
     }
 
-    @GetMapping("/games")
-    List<Game> listAllGames() {
+    @GetMapping("/steam/games")
+    public List<Game> listAllGames() {
         return gameService.getAllGames();
     }
 
-    @GetMapping("/users")
-    List<SteamUser> listAllUsers() {
+    @GetMapping("/steam/users")
+    public List<SteamUser> listAllUsers() {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/users/login/{userName}")
-    void logIn(@PathVariable("userName") String userName) {
+    @PostMapping("/steam/users/login/{userName}")
+    public void logIn(@PathVariable("userName") String userName) {
         userService.logIn(userName);
     }
 
-    @GetMapping("/game/{id}")
-    Game getGameById(@PathVariable("id") long id) {
+    @GetMapping("/steam/game/{id}")
+    public Game getGameById(@PathVariable("id") long id) {
         return gameService.getGameById(id);
     }
 
-    @PostMapping("/{userName}/buy/{gameId}")
-    ResponseEntity<String> purchaseGame(@PathVariable("userName") String userName, @PathVariable("gameId") long gameId) {
+    @PostMapping("/steam/{userName}/buy/{gameId}")
+    public ResponseEntity<String> purchaseGame(@PathVariable("userName") String userName, @PathVariable("gameId") long gameId) {
         //user exists
         if(!userService.isUserExists(userName)){
             return new ResponseEntity<>("User not found!", HttpStatus.NOT_FOUND);
