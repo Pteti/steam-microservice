@@ -18,7 +18,10 @@ public class GameService {
     }
 
     public Game getGameById(long id) {
-        // return gameRepository.findById(id).get();
-        return null;
+        return gameRepository.findById(id).orElse(null);
+    }
+
+    public boolean isGameExists(long id){
+        return gameRepository.findById(id).isPresent();
     }
 }
